@@ -1,0 +1,727 @@
+{
+	"info": {
+		"_postman_id": "29897c85-2f5d-427c-a8cf-343e2c9ef214",
+		"name": "跳转管理",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "获取验证码",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.0.181:9092/captcha",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"captcha"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "验证码图片",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.0.181:9092/captcha/AxpXTRfOBImSexRXFi2X.png",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"captcha",
+						"AxpXTRfOBImSexRXFi2X.png"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "后台登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"account\": \"admin\",\r\n    \"password\": \"123456\",\r\n    \"captcha_text\": \"691657\",\r\n    \"captcha_id\": \"AxpXTRfOBImSexRXFi2X\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/login",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户信息",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgwMjU2Mjk3LCJpc3MiOiJnaW4tcmVkaXJlY3QifQ._xdH7Rbzf7aAvjth1OOeRkTBu2ufwUjAD52LlJOoxSA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:9092/api/account/info?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"account",
+						"info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加用户",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgwMjU2Mjk3LCJpc3MiOiJnaW4tcmVkaXJlY3QifQ._xdH7Rbzf7aAvjth1OOeRkTBu2ufwUjAD52LlJOoxSA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"account\": \"test5\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/account/add",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"account",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取用户列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgwMjU2Mjk3LCJpc3MiOiJnaW4tcmVkaXJlY3QifQ._xdH7Rbzf7aAvjth1OOeRkTBu2ufwUjAD52LlJOoxSA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/account/all?page=1&size=10",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"account",
+						"all"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改用户信息及密码",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgwMTUxOTY4LCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.TIK-5RVGbY9ohILP92e4AxdFSXWNSkl5wJLAX0VRuOw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/account/update",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"account",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "批量删除用户",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgwMTcxMTE3LCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.Zmuwue_qWwMgWqV4rM9AlPzuE_qz8icl1NH1hom5iC0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "dun",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/account/del",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"account",
+						"del"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询规则",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgxMzY4ODc3LCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.bQIrfkBoHItXG-KF3fVrlJ_5ORlj6NNEFfIbMXd3h9k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/rule/all?page=1&size=15&search=",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"rule",
+						"all"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "15"
+						},
+						{
+							"key": "search",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加规则",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgxMzY4ODc3LCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.bQIrfkBoHItXG-KF3fVrlJ_5ORlj6NNEFfIbMXd3h9k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"app_name\": \"测试2\",\r\n    \"from_domain\":[\"t3.com\",\"b3.com\"],\r\n\t\"rule_data\": [{\r\n\t\t\"to_domain\": \"baidu.com\",\r\n        \"weight\":100\r\n\t}],\r\n\t\"status\": 1,\r\n\t\"remark\": \"test\",\r\n    \"default_url\":\"http://tdun.com\",\r\n    \"ip_blacks\":[\"1.1.1.1\",\"2.2.2.2\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/rule/add",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"rule",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改规则",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgwNTk0MDUzLCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.7AoftWAbZ1GjWp1Wfz0QegHi8PMST43ng3eMJrnDW74",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":5,\r\n\t\"app_name\": \"多跳一测试1\",\r\n\t\"weight_on\": 0,\r\n\t\"rule_type\": \"MoreToOne\",\r\n    \"rule_data\": [{\r\n\t\t\"to_domain\": \"baidu.com\"\r\n\t}],\r\n\t\"status\": 1,\r\n\t\"remark\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/rule/update",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"rule",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除规则",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgwNTk0MDUzLCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.7AoftWAbZ1GjWp1Wfz0QegHi8PMST43ng3eMJrnDW74",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ids\":\"6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/rule/delete",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"rule",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "日志查询",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgwODQ4NjgzLCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.e6xEbPlPb5pVjcK-Bmgx9gfQIPGoAES8cCcJXO5jtfM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/logs/all",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"logs",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改分享信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgxOTc1NDE2LCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.pjzzEZ3rJy55Auej0lDN35aH8e59_mAtAQd0sXKZi64",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rule_id\": 24,\r\n    \"password\": \"a12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/share/update",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"share",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查看分享信息",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjgxOTc1NDE2LCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.pjzzEZ3rJy55Auej0lDN35aH8e59_mAtAQd0sXKZi64",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/api/share/info?rule_id=24",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"share",
+						"info"
+					],
+					"query": [
+						{
+							"key": "rule_id",
+							"value": "24"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "分享登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rule_id\": 24,\r\n    \"password\": \"fXcdWMSZ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.0.181:9092/share_login",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"share_login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "汇总统计",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiZ3Vlc3RfMyIsImlkIjoyNCwiZXhwIjoxNjgxOTgyNjgyLCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.SxtThu4VNR4cAavSY-NO7lidgRAcrKC3Nh_1KLIjuyQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.0.181:9092/user/stats/total?rule_id=24",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"user",
+						"stats",
+						"total"
+					],
+					"query": [
+						{
+							"key": "rule_id",
+							"value": "24"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "图表数据",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiZ3Vlc3RfMyIsImlkIjoyNCwiZXhwIjoxNjgxOTgyNjgyLCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.SxtThu4VNR4cAavSY-NO7lidgRAcrKC3Nh_1KLIjuyQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.0.181:9092/user/stats/chart?rule_id=24&date_type=today",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"user",
+						"stats",
+						"chart"
+					],
+					"query": [
+						{
+							"key": "rule_id",
+							"value": "24"
+						},
+						{
+							"key": "date_type",
+							"value": "today"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "访问排名",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50IjoiZ3Vlc3RfMyIsImlkIjoyNCwiZXhwIjoxNjgxOTgyNjgyLCJpc3MiOiJnaW4tcmVkaXJlY3QifQ.SxtThu4VNR4cAavSY-NO7lidgRAcrKC3Nh_1KLIjuyQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.0.181:9092/user/stats/rank?rule_id=24&top=10",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"181"
+					],
+					"port": "9092",
+					"path": [
+						"user",
+						"stats",
+						"rank"
+					],
+					"query": [
+						{
+							"key": "rule_id",
+							"value": "24"
+						},
+						{
+							"key": "top",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
